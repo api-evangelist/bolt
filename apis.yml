@@ -1,0 +1,197 @@
+aid: bolt
+name: Bolt
+description: >
+  Bolt is a checkout experience platform that provides a REST API for one-click
+  checkout, managing shopper accounts, processing payments, and accessing shopper
+  network data across merchants. Bolt enables mid-market and enterprise eCommerce
+  merchants to integrate optimized, frictionless checkout across platforms including
+  Adobe Commerce, BigCommerce, Shopify, WooCommerce, and Salesforce Commerce Cloud.
+  The Bolt Shopper Network allows returning shoppers to complete purchases with
+  stored credentials across all Bolt-powered merchants.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/bolt/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+tags:
+  - Checkout
+  - Payments
+  - eCommerce
+  - One-Click Checkout
+  - Shopper Network
+  - Fraud Protection
+
+apis:
+
+  - aid: bolt:bolt-api
+    name: Bolt API
+    description: >
+      Core Bolt REST API for generating order tokens, managing transactions,
+      pulling financial statements, and integrating one-click checkout into
+      merchant storefronts. Supports both sandbox and production environments.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://help.bolt.com/api-bolt/
+    baseURL: https://api.bolt.com
+    tags:
+      - Checkout
+      - Transactions
+      - Orders
+      - Payments
+    properties:
+      - type: Documentation
+        url: https://help.bolt.com/api-bolt/
+      - type: Sandbox
+        url: https://api-sandbox.bolt.com
+
+  - aid: bolt:embeddable-checkout-v3-api
+    name: Embeddable Checkout v3 API
+    description: >
+      API for configuring and embedding Bolt's checkout experience and shopper
+      account management directly into merchant storefronts, including login
+      modals, account creation, passwordless authentication, and payment flows.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://help.bolt.com/api-embedded-v3/
+    baseURL: https://api.bolt.com
+    tags:
+      - Checkout
+      - Shopper Accounts
+      - Authentication
+      - Embedded
+    properties:
+      - type: Documentation
+        url: https://help.bolt.com/api-embedded-v3/
+
+  - aid: bolt:merchant-callback-api
+    name: Merchant Callback API
+    description: >
+      API enabling merchant backends to respond to Bolt checkout events including
+      discount application, cart creation and updates, shipping and tax calculations,
+      and transaction status updates.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://help.bolt.com/developers/apis/
+    baseURL: https://api.bolt.com
+    tags:
+      - Callbacks
+      - Webhooks
+      - Cart
+      - Shipping
+      - Tax
+    properties:
+      - type: Documentation
+        url: https://help.bolt.com/developers/apis/
+
+  - aid: bolt:subscriptions-api
+    name: Subscriptions API
+    description: >
+      API for creating and managing Bolt Subscriptions, enabling recurring billing
+      and subscription commerce on top of the Bolt checkout platform.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://help.bolt.com/developers/apis/
+    baseURL: https://api.bolt.com
+    tags:
+      - Subscriptions
+      - Recurring Billing
+    properties:
+      - type: Documentation
+        url: https://help.bolt.com/developers/apis/
+
+  - aid: bolt:tokenizer-api
+    name: Tokenizer API
+    description: >
+      API for implementing custom back-office integrations including direct payment
+      processing and card tokenization for merchant-side payment workflows.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://help.bolt.com/developers/apis/
+    baseURL: https://api.bolt.com
+    tags:
+      - Tokenization
+      - Payments
+      - Back-office
+    properties:
+      - type: Documentation
+        url: https://help.bolt.com/developers/apis/
+
+  - aid: bolt:bolt-connect-api
+    name: Bolt Connect Merchant Onboarding API
+    description: >
+      API for platforms to complete connected merchant onboarding to Bolt,
+      enabling platform partners to programmatically onboard new merchants.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://help.bolt.com/developers/apis/
+    baseURL: https://api.bolt.com
+    tags:
+      - Onboarding
+      - Platform
+      - Merchant Management
+    properties:
+      - type: Documentation
+        url: https://help.bolt.com/developers/apis/
+
+  - aid: bolt:checkout-everywhere-api
+    name: Checkout Everywhere API
+    description: >
+      Beta API enabling Bolt checkout links and checkout experiences across any
+      surface, including social commerce, email, and other off-site channels.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://help.bolt.com/products/checkout-everywhere/checkout-links/
+    baseURL: https://api.bolt.com
+    tags:
+      - Checkout Links
+      - Social Commerce
+      - Beta
+    properties:
+      - type: Documentation
+        url: https://help.bolt.com/products/checkout-everywhere/checkout-links/
+
+common:
+
+  - type: Website
+    url: https://www.bolt.com/
+
+  - type: Documentation
+    url: https://help.bolt.com/
+
+  - type: GitHubOrg
+    url: https://github.com/BoltApp
+
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/bolt-com
+
+  - type: Blog
+    url: https://www.bolt.com/blog
+
+  - type: Pricing
+    url: https://help.bolt.com/dashboard/billing/fees/
+
+  - type: StatusPage
+    url: https://status.bolt.com/
+
+  - type: X
+    url: https://x.com/bolt
+
+  - type: Plans
+    url: plans/bolt-plans-pricing.yml
+
+  - type: RateLimits
+    url: rate-limits/bolt-rate-limits.yml
+
+  - type: FinOps
+    url: finops/bolt-finops.yml
+
+  - type: Authentication
+    url: https://help.bolt.com/developers/tools/api-keys/
+
+  - type: Changelog
+    url: https://help.bolt.com/releases/
+
+  - type: Support
+    url: https://support.bolt.com
+
+  - type: MerchantDashboard
+    url: https://merchant.bolt.com
+
+maintainers:
+
+  - FN: Kin Lane
+    email: kin@apievangelist.com
