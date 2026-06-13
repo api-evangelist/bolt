@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/transaction-capture",
+  "title": "transaction-capture",
+  "type": "object",
+  "properties": {
+    "processor_reference": {
+      "type": "string",
+      "example": "123456789XYZ"
+    },
+    "amount": {
+      "$ref": "#/components/schemas/amount"
+    }
+  }
+}

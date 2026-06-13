@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/payment-action-request",
+  "title": "payment-action-request",
+  "type": "object",
+  "required": [
+    ".tag"
+  ],
+  "properties": {
+    ".tag": {
+      "type": "string",
+      "enum": [
+        "finalize",
+        "finalize_threeds_payment"
+      ],
+      "example": "finalize"
+    },
+    "redirect_result": {
+      "type": "string",
+      "description": "Optional redirect result token required for an APM payment (excluding PayPal).",
+      "example": "eyJ0cmFuc"
+    }
+  }
+}

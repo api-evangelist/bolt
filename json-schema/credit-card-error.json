@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/credit-card-error",
+  "title": "credit-card-error",
+  "type": "object",
+  "required": [
+    ".tag",
+    "message"
+  ],
+  "properties": {
+    ".tag": {
+      "type": "string",
+      "enum": [
+        "declined",
+        "declined_invalid_amount",
+        "declined_invalid_cvv",
+        "declined_invalid_merchant",
+        "declined_invalid_number",
+        "declined_expired",
+        "declined_call_issuer",
+        "declined_unsupported"
+      ],
+      "description": "The type of error returned",
+      "example": "declined_invalid_cvv"
+    },
+    "message": {
+      "type": "string",
+      "description": "A human-readable error message, which might include information specific to the request that was made.",
+      "example": "The payment was declined because the CVV is not valid"
+    }
+  }
+}

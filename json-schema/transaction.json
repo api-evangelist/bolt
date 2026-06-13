@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/transaction",
+  "title": "transaction",
+  "type": "object",
+  "properties": {
+    "reference": {
+      "type": "string",
+      "example": "OBYG-X1PX-FN55"
+    },
+    "authorizations": {
+      "description": "Payment authorization events attached to a transaction",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/transaction-authorization"
+      }
+    }
+  }
+}

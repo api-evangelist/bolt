@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/three-ds-error",
+  "title": "three-ds-error",
+  "type": "object",
+  "description": "An error that occurs during 3D Secure authentication or verification.",
+  "required": [
+    ".tag",
+    "message"
+  ],
+  "properties": {
+    ".tag": {
+      "type": "string",
+      "enum": [
+        "three_ds_authentication_failed",
+        "three_ds_verification_failed",
+        "three_ds_reference_missing"
+      ],
+      "description": "The type of 3DS error returned",
+      "example": "three_ds_authentication_failed"
+    },
+    "message": {
+      "type": "string",
+      "description": "A human-readable error message about the 3DS failure.",
+      "example": "3DS authentication with the card issuer failed"
+    }
+  }
+}

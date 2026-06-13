@@ -1,0 +1,13 @@
+{
+  "path": "/account/payment-methods",
+  "method": "post",
+  "content_type": "application/json",
+  "example": {
+    "credit-card-address-reference-id": {
+      "$ref": "#/components/examples/credit-card-with-address-id"
+    },
+    "credit-card-address-reference-explicit": {
+      "$ref": "#/components/examples/credit-card-with-address-explicit"
+    }
+  }
+}

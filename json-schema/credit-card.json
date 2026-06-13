@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/credit-card",
+  "title": "credit-card",
+  "required": [
+    "network",
+    "bin",
+    "last4",
+    "expiration",
+    "token"
+  ],
+  "type": "object",
+  "properties": {
+    "network": {
+      "$ref": "#/components/schemas/credit-card-network"
+    },
+    "bin": {
+      "type": "string",
+      "description": "The Bank Identification Number (BIN). This is the first 4 to 8 digits of the account number.",
+      "pattern": "^\\d+$",
+      "example": "411111"
+    },
+    "last4": {
+      "type": "string",
+      "description": "The account number's last four digits.",
+      "pattern": "^\\d{4}$",
+      "example": "1004"
+    },
+    "expiration": {
+      "type": "string",
+      "description": "The expiration date, in YYYY-MM format.",
+      "pattern": "^\\d{4}-\\d{2}$",
+      "example": "2029-03"
+    },
+    "token": {
+      "type": "string",
+      "description": "The Bolt token associated with the credit card.",
+      "writeOnly": true,
+      "example": "a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0"
+    },
+    "affirm_vcn_token": {
+      "type": "string",
+      "description": "The checkout token associated with Affirm VCN credit cards.",
+      "example": "a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0"
+    },
+    "default": {
+      "type": "boolean",
+      "description": "Indicates whether this credit card is the default payment method.",
+      "example": true
+    }
+  }
+}

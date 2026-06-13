@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/cart",
+  "title": "cart",
+  "required": [
+    "total",
+    "tax",
+    "order_reference"
+  ],
+  "type": "object",
+  "properties": {
+    "order_reference": {
+      "type": "string",
+      "description": "This value is used by Bolt as an external reference to a given order. This reference must be unique per successful transaction.",
+      "example": "order_100"
+    },
+    "order_description": {
+      "type": "string",
+      "description": "Used optionally to pass additional information like order numbers or other IDs as needed.",
+      "maxLength": 1024,
+      "example": "Order #1234567890"
+    },
+    "display_id": {
+      "type": "string",
+      "description": "A shopper-facing identifier corresponding to the order reference associated with this transaction.",
+      "maxLength": 128,
+      "example": "215614191"
+    },
+    "shipments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/cart-shipment"
+      }
+    },
+    "discounts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/cart-discount"
+      }
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/cart-item"
+      }
+    },
+    "total": {
+      "description": "The total amount of the cart including its items and taxes (if applicable).",
+      "$ref": "#/components/schemas/amount"
+    },
+    "tax": {
+      "$ref": "#/components/schemas/amount"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "path": "/guest/payments",
+  "method": "post",
+  "status": "200",
+  "content_type": "application/json",
+  "example": {
+    "finalized": {
+      "$ref": "#/components/examples/payment-response-finalized"
+    },
+    "pending": {
+      "$ref": "#/components/examples/payment-response-pending"
+    }
+  }
+}

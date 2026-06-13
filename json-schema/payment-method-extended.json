@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/payment-method-extended",
+  "title": "payment-method-extended",
+  "oneOf": [
+    {
+      "$ref": "#/components/schemas/payment-method-reference"
+    },
+    {
+      "$ref": "#/components/schemas/payment-method-credit-card"
+    },
+    {
+      "$ref": "#/components/schemas/payment-method-applepay"
+    },
+    {
+      "$ref": "#/components/schemas/payment-method-paypal"
+    },
+    {
+      "$ref": "#/components/schemas/payment-method-affirm"
+    },
+    {
+      "$ref": "#/components/schemas/payment-method-afterpay"
+    },
+    {
+      "$ref": "#/components/schemas/payment-method-klarna"
+    },
+    {
+      "$ref": "#/components/schemas/payment-method-klarna-account"
+    },
+    {
+      "$ref": "#/components/schemas/payment-method-klarna-paynow"
+    }
+  ],
+  "discriminator": {
+    "propertyName": ".tag",
+    "mapping": {
+      "id": "#/components/schemas/payment-method-reference",
+      "credit_card": "#/components/schemas/payment-method-credit-card",
+      "googlepay": "#/components/schemas/payment-method-googlepay",
+      "applepay": "#/components/schemas/payment-method-applepay",
+      "paypal": "#/components/schemas/payment-method-paypal",
+      "affirm": "#/components/schemas/payment-method-affirm",
+      "afterpay": "#/components/schemas/payment-method-afterpay",
+      "klarna": "#/components/schemas/payment-method-klarna",
+      "klarna_account": "#/components/schemas/payment-method-klarna-account",
+      "klarna_paynow": "#/components/schemas/payment-method-klarna-paynow"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/cart-item",
+  "title": "cart-item",
+  "type": "object",
+  "required": [
+    "name",
+    "reference",
+    "total_amount",
+    "unit_price",
+    "quantity"
+  ],
+  "properties": {
+    "name": {
+      "description": "The name of a given item.",
+      "type": "string",
+      "maxLength": 1024,
+      "example": "Bolt Swag Bag"
+    },
+    "reference": {
+      "type": "string",
+      "description": "This value is used by Bolt as an external reference to a given item.",
+      "maxLength": 1024,
+      "example": "item_100"
+    },
+    "description": {
+      "type": "string",
+      "description": "A human-readable description of this cart item.",
+      "example": "Large tote with Bolt logo."
+    },
+    "seller_id": {
+      "type": "string",
+      "description": "External reference ID for a marketplace seller.",
+      "example": "seller_123"
+    },
+    "total_amount": {
+      "$ref": "#/components/schemas/amount"
+    },
+    "unit_price": {
+      "type": "integer",
+      "description": "The item's unit price, i.e. the cost of a single item exclusive of tax and discounts.",
+      "format": "int64",
+      "example": 1000
+    },
+    "quantity": {
+      "type": "integer",
+      "description": "The number of units that comprise this cart item.",
+      "format": "int64",
+      "maximum": 15000,
+      "example": 1
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Used to provide a link to the image associated with the item.",
+      "maxLength": 8192,
+      "example": "https://www.example.com/products/123456/images/1.png",
+      "format": "url"
+    },
+    "subscription_plan_id": {
+      "type": "string",
+      "description": "Subscription Plan ID that assigns this item to a specific subscription plan.",
+      "maxLength": 1024,
+      "example": "spl_123"
+    }
+  }
+}

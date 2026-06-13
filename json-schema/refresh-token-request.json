@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/refresh-token-request",
+  "title": "refresh-token-request",
+  "type": "object",
+  "description": "Refresh an existing access token, using the refresh token provided in the initial authorization.",
+  "required": [
+    "client_id",
+    "client_secret",
+    "grant_type",
+    "scope",
+    "refresh_token"
+  ],
+  "properties": {
+    "client_id": {
+      "type": "string",
+      "description": "The OAuth client ID, which corresponds to the merchant publishable key, which can be retrieved in your Merchant Dashboard.",
+      "example": "8fd9diIy59sj.IraJdeIgmdsO.fd233434fg2c616cgo932aa6e1e4fc627a9385045gr395222a127gi93c595rg4"
+    },
+    "client_secret": {
+      "type": "string",
+      "description": "The OAuth client secret, which corresponds the merchant API key, which can be retrieved in your Merchant Dashboard.",
+      "example": "23ee7ec7301779eaff451d7c6f6cba322499e3c0ec752f800c72a8f99217e3a8"
+    },
+    "scope": {
+      "description": "The requested scopes. If the request is successful, the OAuth client will be able to perform operations requiring these scopes.",
+      "externalDocs": {
+        "description": "OAuth Developer Reference",
+        "url": "https://help.bolt.com/developers/references/bolt-oauth/#scopes"
+      },
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "bolt.account.manage",
+          "bolt.account.view",
+          "openid"
+        ]
+      }
+    },
+    "state": {
+      "description": "A randomly generated string sent along with an authorization code. This must be included if provided. It is used to prevent cross-site request forgery (CSRF) attacks.",
+      "type": "string",
+      "example": "xyzABC123"
+    },
+    "grant_type": {
+      "description": "The type of OAuth 2.0 grant being utilized.",
+      "enum": [
+        "refresh_token"
+      ],
+      "type": "string",
+      "example": "refresh_token"
+    },
+    "refresh_token": {
+      "description": "The value of the refresh token issued to you in the originating OAuth token request.",
+      "type": "string",
+      "example": "4hJYNO4GHvALZoocXoLenfNeFy1RR5ZT6G5JYrFbvkI.Q_PqV0lIszCNoN-85EwD-2nYZOVEepVgJSolx-Jbzrs"
+    }
+  }
+}

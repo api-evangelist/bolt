@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/cart-shipment",
+  "title": "cart-shipment",
+  "type": "object",
+  "properties": {
+    "address": {
+      "$ref": "#/components/schemas/address-reference"
+    },
+    "cost": {
+      "$ref": "#/components/schemas/amount"
+    },
+    "carrier": {
+      "type": "string",
+      "description": "The name of the carrier selected.",
+      "example": "FedEx"
+    }
+  }
+}

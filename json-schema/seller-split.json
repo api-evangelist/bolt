@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/seller-split",
+  "title": "seller-split",
+  "properties": {
+    "amounts": {
+      "$ref": "#/components/schemas/seller-split-amounts"
+    },
+    "marketplace_commission_fee": {
+      "$ref": "#/components/schemas/marketplace-commission-fee"
+    },
+    "seller_id": {
+      "type": "string",
+      "example": "seller_12345"
+    }
+  },
+  "type": "object"
+}

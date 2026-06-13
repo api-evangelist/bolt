@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/payment-response-pending",
+  "title": "payment-response-pending",
+  "type": "object",
+  "required": [
+    ".tag",
+    "status",
+    "action",
+    "url"
+  ],
+  "properties": {
+    ".tag": {
+      "type": "string",
+      "enum": [
+        "pending"
+      ],
+      "example": "pending",
+      "x-order": 0
+    },
+    "id": {
+      "type": "string",
+      "format": "id",
+      "example": "iKv7t5bgt1gg",
+      "x-order": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "awaiting_user_confirmation"
+      ],
+      "example": "awaiting_user_confirmation"
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "redirect"
+      ],
+      "example": "redirect"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://www.example.com/payments/finalize"
+    }
+  }
+}

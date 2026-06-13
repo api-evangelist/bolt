@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/seller-info",
+  "title": "seller-info",
+  "type": "object",
+  "required": [
+    "id"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "External reference ID for the seller in marketplace scenarios",
+      "example": "seller_12345",
+      "maxLength": 255
+    }
+  }
+}

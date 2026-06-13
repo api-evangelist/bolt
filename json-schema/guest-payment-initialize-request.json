@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/guest-payment-initialize-request",
+  "title": "guest-payment-initialize-request",
+  "type": "object",
+  "required": [
+    "profile",
+    "cart",
+    "payment_method"
+  ],
+  "properties": {
+    "profile": {
+      "$ref": "#/components/schemas/profile-creation-data"
+    },
+    "cart": {
+      "$ref": "#/components/schemas/cart"
+    },
+    "payment_method": {
+      "$ref": "#/components/schemas/payment-method"
+    },
+    "seller_splits": {
+      "items": {
+        "$ref": "#/components/schemas/seller-split"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "authorization_type": {
+      "type": "string",
+      "description": "The type of authorization to perform. 'estimated' for pre-authorization, 'final' for final authorization.",
+      "example": "final"
+    },
+    "auto_capture": {
+      "type": "boolean",
+      "description": "Whether to automatically capture the payment after authorization. If true, the payment will be captured immediately. If false, the payment will only be authorized and require a separate capture call.\n",
+      "example": true
+    },
+    "three_ds_reference": {
+      "type": "string",
+      "description": "Reference value from cardinal.",
+      "example": "b0f0d4d0-4630-4ec8-8f5e-a19234567890"
+    }
+  }
+}

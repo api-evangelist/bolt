@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/address-reference",
+  "title": "address-reference",
+  "oneOf": [
+    {
+      "$ref": "#/components/schemas/address-reference-id"
+    },
+    {
+      "$ref": "#/components/schemas/address-reference-explicit"
+    },
+    {
+      "$ref": "#/components/schemas/address-reference-partial"
+    }
+  ],
+  "discriminator": {
+    "propertyName": ".tag",
+    "mapping": {
+      "id": "#/components/schemas/address-reference-id",
+      "explicit": "#/components/schemas/address-reference-explicit",
+      "partial": "#/components/schemas/address-reference-partial"
+    }
+  }
+}

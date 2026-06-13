@@ -1,0 +1,13 @@
+{
+  "path": "/account/addresses/{id}",
+  "method": "put",
+  "content_type": "application/json",
+  "example": {
+    "address-all-fields": {
+      "$ref": "#/components/examples/address-all-fields"
+    },
+    "address-some-fields": {
+      "$ref": "#/components/examples/address-some-fields"
+    }
+  }
+}

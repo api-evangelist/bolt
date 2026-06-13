@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/payment-method-reference",
+  "title": "Payment by reference Method",
+  "type": "object",
+  "required": [
+    ".tag",
+    "id"
+  ],
+  "properties": {
+    ".tag": {
+      "type": "string",
+      "enum": [
+        "id"
+      ],
+      "example": "id"
+    },
+    "id": {
+      "type": "string",
+      "format": "id",
+      "description": "Payment ID of the saved Bolt Payment method.",
+      "example": "X5h6j8uLpVGK"
+    }
+  }
+}

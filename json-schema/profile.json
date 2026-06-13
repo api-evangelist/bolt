@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/profile",
+  "title": "profile",
+  "type": "object",
+  "description": "An account's identifying information.",
+  "required": [
+    "first_name",
+    "last_name",
+    "email"
+  ],
+  "properties": {
+    "first_name": {
+      "type": "string",
+      "description": "The given name of the person associated with this profile.",
+      "example": "Alice",
+      "x-order": 1
+    },
+    "last_name": {
+      "type": "string",
+      "description": "The last name of the person associated with this profile.",
+      "example": "Baker",
+      "x-order": 2
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "The email address asscoiated with this profile.",
+      "example": "alice@example.com",
+      "x-order": 3
+    },
+    "phone": {
+      "type": "string",
+      "format": "phone",
+      "description": "The phone number associated with this profile.",
+      "example": "+14155550199",
+      "x-order": 4
+    }
+  }
+}

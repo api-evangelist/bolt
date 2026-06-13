@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/cart-error",
+  "title": "cart-error",
+  "type": "object",
+  "required": [
+    ".tag",
+    "message"
+  ],
+  "properties": {
+    ".tag": {
+      "type": "string",
+      "enum": [
+        "payment_already_exists",
+        "currency_not_supported"
+      ],
+      "description": "The type of error returned",
+      "example": "payment_already_exists"
+    },
+    "message": {
+      "type": "string",
+      "description": "A human-readable error message, which might include information specific to the request that was made.",
+      "example": "A payment for this order already exists"
+    }
+  }
+}

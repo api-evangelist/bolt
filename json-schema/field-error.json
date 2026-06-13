@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/field-error",
+  "title": "field-error",
+  "type": "object",
+  "description": "An error that pertains to validation of a specific field in the request.",
+  "required": [
+    ".tag",
+    "message",
+    "field"
+  ],
+  "properties": {
+    ".tag": {
+      "type": "string",
+      "enum": [
+        "invalid_input_parameter"
+      ],
+      "description": "The type of error returned",
+      "example": "invalid_input_parameter"
+    },
+    "message": {
+      "type": "string",
+      "description": "A human-readable error message, which might include information specific to the request that was made.",
+      "example": "We were unable to process your request."
+    },
+    "field": {
+      "type": "string",
+      "description": "The field (in its hierarchical form) that is failing validation.",
+      "example": "address.phone"
+    }
+  }
+}

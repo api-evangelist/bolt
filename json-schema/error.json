@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/error",
+  "title": "error",
+  "type": "object",
+  "required": [
+    ".tag",
+    "message"
+  ],
+  "properties": {
+    ".tag": {
+      "type": "string",
+      "enum": [
+        "unauthorized",
+        "forbidden",
+        "unprocessable_request",
+        "not_found"
+      ],
+      "description": "The type of error returned",
+      "example": "unprocessable_request"
+    },
+    "message": {
+      "type": "string",
+      "description": "A human-readable error message, which might include information specific to the request that was made.",
+      "example": "We were unable to process your request."
+    }
+  }
+}

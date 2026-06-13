@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/payment-method-applepay",
+  "title": "ApplePay Payment Method",
+  "allOf": [
+    {
+      "type": "object",
+      "required": [
+        ".tag",
+        "type"
+      ],
+      "properties": {
+        ".tag": {
+          "type": "string",
+          "enum": [
+            "applepay"
+          ],
+          "example": "applepay",
+          "x-order": 0
+        },
+        "id": {
+          "type": "string",
+          "format": "id",
+          "readOnly": true,
+          "example": "X5h6j8uLpVGK",
+          "x-order": 1
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of payment method",
+          "example": "applepay",
+          "x-order": 2
+        },
+        "billing_address": {
+          "$ref": "#/components/schemas/address-reference"
+        }
+      }
+    },
+    {
+      "$ref": "#/components/schemas/credit-card"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "bolt_reference": {
+          "type": "string",
+          "description": "Bolt generated Applepay token id needed for token life cycle management.",
+          "example": "a6f57b8c-3b12-4baf-9e77-0b9b2e3cb3d7"
+        }
+      }
+    }
+  ]
+}

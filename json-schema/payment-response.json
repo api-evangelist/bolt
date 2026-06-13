@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/payment-response",
+  "title": "payment-response",
+  "oneOf": [
+    {
+      "$ref": "#/components/schemas/payment-response-finalized"
+    },
+    {
+      "$ref": "#/components/schemas/payment-response-pending"
+    },
+    {
+      "$ref": "#/components/schemas/payment-response-three-ds-required"
+    }
+  ],
+  "discriminator": {
+    "propertyName": ".tag",
+    "mapping": {
+      "finalized": "#/components/schemas/payment-response-finalized",
+      "pending": "#/components/schemas/payment-response-pending",
+      "three_ds_required": "#/components/schemas/payment-response-three-ds-required"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "path": "/orders",
+  "method": "post",
+  "content_type": "application/json",
+  "example": {
+    "reference": {
+      "$ref": "#/components/examples/order"
+    }
+  }
+}

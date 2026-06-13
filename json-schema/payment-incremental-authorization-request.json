@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/payment-incremental-authorization-request",
+  "title": "payment-incremental-authorization-request",
+  "type": "object",
+  "required": [
+    "amount",
+    "currency"
+  ],
+  "properties": {
+    "amount": {
+      "type": "integer",
+      "description": "Additional amount to authorize in the smallest currency unit (cents for USD)",
+      "example": 500,
+      "minimum": 1
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency code for the additional amount",
+      "example": "USD",
+      "pattern": "^[A-Z]{3}$"
+    },
+    "merchant_event_id": {
+      "type": "string",
+      "description": "Optional merchant event ID for tracking purposes",
+      "example": "event_12345"
+    },
+    "skip_hook_notification": {
+      "type": "boolean",
+      "description": "Field to skip webhook notification",
+      "example": true
+    },
+    "seller_info": {
+      "$ref": "#/components/schemas/seller-info"
+    }
+  }
+}

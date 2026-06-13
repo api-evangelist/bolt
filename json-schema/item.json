@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/item",
+  "title": "item",
+  "type": "object",
+  "required": [
+    "product_id",
+    "name",
+    "unit_price",
+    "quantity",
+    "total_amount"
+  ],
+  "properties": {
+    "product_id": {
+      "type": "string",
+      "description": "The ID of the product.",
+      "example": "12345"
+    },
+    "variant_id": {
+      "type": "string",
+      "description": "Variation ID of the product, if applicable.",
+      "example": "24"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the item.",
+      "example": "Bolt Swag Bag"
+    },
+    "description": {
+      "type": "string",
+      "description": "An extended description of the item.",
+      "example": "Large tote with Bolt logo"
+    },
+    "unit_price": {
+      "type": "integer",
+      "description": "The monetary unit price, in cents, of the item. If a discount applies to the item, set unit_price to the discounted unit price and specify the unit price discount in the discount parameter at the cart level.",
+      "format": "int64",
+      "example": 1001
+    },
+    "quantity": {
+      "type": "integer",
+      "description": "The item quantity.",
+      "example": 3
+    },
+    "total_amount": {
+      "type": "integer",
+      "description": "A monetary total amount, represented in cents. Set to unit_price * quantity.",
+      "format": "int64",
+      "example": 3003
+    }
+  }
+}

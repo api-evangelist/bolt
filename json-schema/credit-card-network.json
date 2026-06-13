@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/credit-card-network",
+  "title": "credit-card-network",
+  "type": "string",
+  "description": "The credit card's network.",
+  "enum": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "jcb",
+    "dinersclub",
+    "unionpay",
+    "alliancedata",
+    "citiplcc"
+  ],
+  "example": "visa",
+  "x-oapi-codegen-extra-tags": {
+    "validate": "required"
+  }
+}

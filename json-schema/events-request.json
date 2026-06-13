@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/events-request",
+  "title": "events-request",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/event"
+  }
+}

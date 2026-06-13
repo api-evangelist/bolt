@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/address-reference-id",
+  "title": "Address ID Reference",
+  "type": "object",
+  "required": [
+    ".tag",
+    "id"
+  ],
+  "properties": {
+    ".tag": {
+      "type": "string",
+      "enum": [
+        "id"
+      ],
+      "description": "The type of address reference",
+      "example": "id"
+    },
+    "id": {
+      "type": "string",
+      "format": "id",
+      "description": "The address's ID",
+      "example": "D4g3h5tBuVYK9"
+    }
+  }
+}

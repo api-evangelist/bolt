@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/payment-method-klarna-paynow",
+  "title": "Klarna Pay Now Payment Method",
+  "type": "object",
+  "required": [
+    ".tag",
+    "return_url"
+  ],
+  "properties": {
+    ".tag": {
+      "type": "string",
+      "enum": [
+        "klarna_paynow"
+      ],
+      "example": "klarna_paynow"
+    },
+    "return_url": {
+      "type": "string",
+      "description": "Return URL to return to after payment completion in Klarna.",
+      "format": "url",
+      "writeOnly": true,
+      "example": "https://www.example.com/handle_klarna_paynow_success"
+    }
+  }
+}

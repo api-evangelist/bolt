@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/payment-method-credit-card",
+  "title": "Credit Card Payment Method",
+  "allOf": [
+    {
+      "type": "object",
+      "required": [
+        ".tag",
+        "type",
+        "billing_address"
+      ],
+      "properties": {
+        ".tag": {
+          "type": "string",
+          "enum": [
+            "credit_card"
+          ],
+          "example": "credit_card",
+          "x-order": 0
+        },
+        "id": {
+          "type": "string",
+          "format": "id",
+          "readOnly": true,
+          "example": "X5h6j8uLpVGK",
+          "x-order": 1
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of payment method",
+          "example": "credit_card",
+          "x-order": 2
+        },
+        "billing_address": {
+          "$ref": "#/components/schemas/address-reference"
+        }
+      }
+    },
+    {
+      "$ref": "#/components/schemas/credit-card"
+    }
+  ]
+}

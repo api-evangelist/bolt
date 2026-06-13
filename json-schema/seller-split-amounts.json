@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/seller-split-amounts",
+  "title": "seller-split-amounts",
+  "properties": {
+    "discount_total": {
+      "format": "int64",
+      "type": "integer",
+      "example": 100
+    },
+    "gross_total": {
+      "format": "int64",
+      "type": "integer",
+      "example": 1000
+    },
+    "merchant_subtotal": {
+      "format": "int64",
+      "type": "integer",
+      "example": 900
+    },
+    "shipping_total": {
+      "format": "int64",
+      "type": "integer",
+      "example": 100
+    },
+    "tax_total": {
+      "format": "int64",
+      "type": "integer",
+      "example": 100
+    }
+  },
+  "type": "object"
+}

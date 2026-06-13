@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/payment-update-request",
+  "title": "payment-update-request",
+  "type": "object",
+  "properties": {
+    "cart": {
+      "$ref": "#/components/schemas/cart"
+    },
+    "incremental_authorization": {
+      "$ref": "#/components/schemas/payment-incremental-authorization-request"
+    }
+  }
+}

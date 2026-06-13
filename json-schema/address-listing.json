@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/address-listing",
+  "title": "address-listing",
+  "type": "object",
+  "description": "An address saved on an account, i.e. a physical address plus any additional account-specific metadata.",
+  "required": [
+    "first_name",
+    "last_name",
+    "street_address1",
+    "locality",
+    "postal_code",
+    "country_code"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "id",
+      "description": "The address's unique identifier.",
+      "readOnly": true,
+      "example": "D4g3h5tBuVYK9",
+      "x-order": 1
+    },
+    "first_name": {
+      "type": "string",
+      "description": "The first name of the person associated with this address.",
+      "example": "Alice",
+      "x-order": 2
+    },
+    "last_name": {
+      "type": "string",
+      "description": "The last name of the person associated with this address.",
+      "example": "Baker",
+      "x-order": 3
+    },
+    "company": {
+      "type": "string",
+      "description": "The company associated with this address.",
+      "example": "ACME Corporation",
+      "x-order": 4
+    },
+    "street_address1": {
+      "type": "string",
+      "description": "The street address associated with this address.",
+      "example": "535 Mission St, Ste 1401",
+      "x-order": 5
+    },
+    "street_address2": {
+      "type": "string",
+      "description": "Any additional, optional, street address information associated with this address.",
+      "example": "c/o Shipping Department",
+      "x-order": 6
+    },
+    "locality": {
+      "type": "string",
+      "description": "The locality (e.g. city, town, etc...) associated with this address.",
+      "example": "San Francisco",
+      "x-order": 7
+    },
+    "postal_code": {
+      "type": "string",
+      "description": "The postal code associated with this address.",
+      "example": "94105",
+      "x-order": 8
+    },
+    "region": {
+      "type": "string",
+      "description": "The region or administrative area (e.g. state, province, county, etc...) associated with this address.",
+      "example": "CA",
+      "x-order": 9
+    },
+    "country_code": {
+      "$ref": "#/components/schemas/country-code"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "The email address associated with this address.",
+      "example": "alice@example.com",
+      "x-order": 11
+    },
+    "phone": {
+      "type": "string",
+      "format": "phone",
+      "description": "The phone number associated with this address.",
+      "example": "+14155550199",
+      "x-oapi-codegen-extra-tags": {
+        "validate": "phone=strict"
+      },
+      "x-order": 12
+    },
+    "is_default": {
+      "type": "boolean",
+      "description": "Whether or not this is the default address saved.",
+      "readOnly": true,
+      "example": true
+    }
+  }
+}

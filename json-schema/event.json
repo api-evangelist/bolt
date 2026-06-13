@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/event",
+  "title": "event",
+  "type": "object",
+  "required": [
+    "source",
+    "type",
+    "data",
+    "timestamp",
+    "timezone"
+  ],
+  "properties": {
+    "source": {
+      "type": "string",
+      "enum": [
+        "manual_frontend",
+        "custom_rule"
+      ],
+      "description": "The source of the event",
+      "example": "manual_frontend"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "update_cart",
+        "cart_updated",
+        "payment",
+        "payment_completed",
+        "recognition",
+        "shopper_recognized",
+        "page_view",
+        "page_viewed"
+      ],
+      "description": "The type of the event",
+      "example": "cart_updated"
+    },
+    "id": {
+      "type": "string",
+      "description": "UUID for the event",
+      "example": "123456789"
+    },
+    "data": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/update-cart-event-data"
+        },
+        {
+          "$ref": "#/components/schemas/cart-updated-event-data"
+        },
+        {
+          "$ref": "#/components/schemas/payment-event-data"
+        },
+        {
+          "$ref": "#/components/schemas/payment-completed-event-data"
+        },
+        {
+          "$ref": "#/components/schemas/recognition-event-data"
+        },
+        {
+          "$ref": "#/components/schemas/shopper-recognized-event-data"
+        },
+        {
+          "$ref": "#/components/schemas/page-view-event-data"
+        },
+        {
+          "$ref": "#/components/schemas/page-viewed-event-data"
+        }
+      ]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The ISO 8601 timestamp of the event",
+      "example": "2022-01-01T12:00:00Z"
+    },
+    "timezone": {
+      "type": "string",
+      "description": "The timezone of the event",
+      "example": "America/New_York"
+    }
+  }
+}

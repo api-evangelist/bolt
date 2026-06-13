@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/base-oauth-token-response",
+  "title": "base-oauth-token-response",
+  "type": "object",
+  "properties": {
+    "access_token": {
+      "description": "An access token you can use to make requests on behalf of a Bolt shopper.",
+      "type": "string",
+      "example": "KCqordmSK6_lpkaXaXfGD8LwnKMGGOYy4Ju2IaBXpJI.CzOF7QOmGGQEgIzBjxOEh1FbRdDpzf9zbm9eHrCZ6zw"
+    },
+    "expires_in": {
+      "description": "The access token's expiration, in seconds.",
+      "type": "integer",
+      "example": 3600
+    },
+    "refresh_token": {
+      "description": "A refresh token you can use to issue a brand new access token without obtaining a new authorization code.",
+      "type": "string",
+      "example": "4hJYNO4GHvALZoocXoLenfNeFy1RR5ZT6G5JYrFbvkI.Q_PqV0lIszCNoN-85EwD-2nYZOVEepVgJSolx-Jbzrs"
+    },
+    "refresh_token_scope": {
+      "description": "The scope granted to the refresh token. Currently, refreshed token will only grant view permissions.",
+      "type": "string",
+      "example": "bolt.account.view"
+    },
+    "scope": {
+      "description": "The scope granted to access token, depending on the scope granted to the authorization code as well as the scope parameter. Options include `bolt.account.manage`, `bolt.account.view`, `openid`. Multiple values can be returned as space-separated strings.",
+      "type": "string",
+      "example": "bolt.account.manage openid"
+    },
+    "token_type": {
+      "description": "The token_type will always be bearer.",
+      "type": "string",
+      "example": "bearer"
+    }
+  }
+}

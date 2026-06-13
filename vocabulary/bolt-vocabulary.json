@@ -1,0 +1,534 @@
+{
+  "name": "Bolt API Vocabulary",
+  "description": "Terms and concepts from the Bolt API Reference",
+  "version": "3.3.22",
+  "terms": [
+    {
+      "term": "Account",
+      "description": "Use the Accounts API to access shoppers' accounts to empower your checkout and facilitate shoppers' choices.",
+      "source": "tag"
+    },
+    {
+      "term": "Payments",
+      "description": "Use the Payments API to process credit card and alternative payment methods with Bolt.",
+      "source": "tag"
+    },
+    {
+      "term": "Orders",
+      "description": "Use the Orders API to create and manage orders, including orders that have been placed outside the Bolt ecosystem.",
+      "source": "tag"
+    },
+    {
+      "term": "OAuth",
+      "description": "Use the OAuth API to enable your ecommerce server to make API calls on behalf of a Bolt logged-in shopper.",
+      "source": "tag"
+    },
+    {
+      "term": "Callbacks",
+      "description": "Implement Callback endpoints on your servers to power Bolt experiences. Different Bolt packages require different callbacks to be implemented. Consult your relevant product documentation for a list of required callbacks.",
+      "source": "tag"
+    },
+    {
+      "term": "Testing",
+      "description": "Use the Testing API to generate and retrieve test data to verify a subset of flows in non-production environments.",
+      "source": "tag"
+    },
+    {
+      "term": "Events",
+      "description": "Use the Events API to ingest shopper events to enable real-time insights and actions.",
+      "source": "tag"
+    },
+    {
+      "term": "country-code",
+      "description": "The country (in its ISO 3166 alpha-2 format) associated with this address.",
+      "source": "schema"
+    },
+    {
+      "term": "address-listing",
+      "description": "An address saved on an account, i.e. a physical address plus any additional account-specific metadata.",
+      "source": "schema"
+    },
+    {
+      "term": "address-reference-id",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "address-reference-explicit",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "address-reference-partial",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "address-reference",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "credit-card-network",
+      "description": "The credit card's network.",
+      "source": "schema"
+    },
+    {
+      "term": "credit-card",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "payment-method-credit-card",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "payment-method-googlepay",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "payment-method-applepay",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "payment-method-paypal",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "payment-method-affirm",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "payment-method-afterpay",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "payment-method-klarna",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "payment-method-klarna-account",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "payment-method-klarna-paynow",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "payment-method",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "profile",
+      "description": "An account's identifying information.",
+      "source": "schema"
+    },
+    {
+      "term": "account",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "error",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "field-error",
+      "description": "An error that pertains to validation of a specific field in the request.",
+      "source": "schema"
+    },
+    {
+      "term": "credit-card-error",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "amount",
+      "description": "A monetary amount, i.e. a base unit amount and a supported currency.",
+      "source": "schema"
+    },
+    {
+      "term": "cart-shipment",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "cart-discount",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "cart-item",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "cart",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "payment-method-reference",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "payment-method-extended",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "seller-split-amounts",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "marketplace-commission-fee",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "seller-split",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "payment-initialize-request",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "processor-response",
+      "description": "Raw authorization response from the payment processor",
+      "source": "schema"
+    },
+    {
+      "term": "transaction-authorization",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "transaction-capture",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "transaction-refund",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "transaction-void",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "transaction",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "payment-response-finalized",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "payment-response-pending",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "payment-response-three-ds-required",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "payment-response",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "three-ds-error",
+      "description": "An error that occurs during 3D Secure authentication or verification.",
+      "source": "schema"
+    },
+    {
+      "term": "cart-error",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "payment-action-request",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "seller-info",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "payment-incremental-authorization-request",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "payment-update-request",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "profile-creation-data",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "guest-payment-initialize-request",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "order",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "order-response",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "authorization-code-request",
+      "description": "Perform the initial token exchange, using the authorization code provided by Bolt's Login Modal.",
+      "source": "schema"
+    },
+    {
+      "term": "refresh-token-request",
+      "description": "Refresh an existing access token, using the refresh token provided in the initial authorization.",
+      "source": "schema"
+    },
+    {
+      "term": "base-oauth-token-response",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "get-access-token-response",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "create-full-account",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "item",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "cart-2",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "update-cart-event-data",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "cart-updated-event-data",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "payment-event-data",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "payment-completed-event-data",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "recognition-event-data",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "shopper-recognized-event-data",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "page-view-event-data",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "page-viewed-event-data",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "event",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "events-request",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "failed-event",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "events-response",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "account-test-creation-data",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "account-test-phone-data",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "test-credit-card",
+      "description": "",
+      "source": "schema"
+    },
+    {
+      "term": "accountGet",
+      "description": "Retrieve account details",
+      "source": "operation",
+      "path": "/account",
+      "method": "get"
+    },
+    {
+      "term": "accountAddressCreate",
+      "description": "Add an address",
+      "source": "operation",
+      "path": "/account/addresses",
+      "method": "post"
+    },
+    {
+      "term": "accountAddressEdit",
+      "description": "Edit an existing address",
+      "source": "operation",
+      "path": "/account/addresses/{id}",
+      "method": "put"
+    },
+    {
+      "term": "accountAddressDelete",
+      "description": "Delete an existing address",
+      "source": "operation",
+      "path": "/account/addresses/{id}",
+      "method": "delete"
+    },
+    {
+      "term": "accountAddPaymentMethod",
+      "description": "Add a payment method",
+      "source": "operation",
+      "path": "/account/payment-methods",
+      "method": "post"
+    },
+    {
+      "term": "accountPaymentMethodDelete",
+      "description": "Delete an existing payment method",
+      "source": "operation",
+      "path": "/account/payment-methods/{id}",
+      "method": "delete"
+    },
+    {
+      "term": "paymentsInitialize",
+      "description": "Initialize a Bolt payment for logged in shoppers",
+      "source": "operation",
+      "path": "/payments",
+      "method": "post"
+    },
+    {
+      "term": "paymentsAction",
+      "description": "Finalize a pending payment",
+      "source": "operation",
+      "path": "/payments/{id}",
+      "method": "post"
+    },
+    {
+      "term": "guestPaymentsInitialize",
+      "description": "Initialize a Bolt payment for guest shoppers",
+      "source": "operation",
+      "path": "/guest/payments",
+      "method": "post"
+    },
+    {
+      "term": "guestPaymentsAction",
+      "description": "Finalize a pending guest payment",
+      "source": "operation",
+      "path": "/guest/payments/{id}",
+      "method": "post"
+    },
+    {
+      "term": "ordersCreate",
+      "description": "Create an order that was prepared outside the Bolt ecosystem.",
+      "source": "operation",
+      "path": "/orders",
+      "method": "post"
+    },
+    {
+      "term": "oauthGetToken",
+      "description": "Get OAuth token",
+      "source": "operation",
+      "path": "/oauth/token",
+      "method": "post"
+    },
+    {
+      "term": "callbackAccountUpsert",
+      "description": "Callback to update or create a full shopper account",
+      "source": "operation",
+      "path": "/callbacks/accounts",
+      "method": "post"
+    },
+    {
+      "term": "testingAccountCreate",
+      "description": "Create a test account",
+      "source": "operation",
+      "path": "/testing/accounts",
+      "method": "post"
+    },
+    {
+      "term": "testingAccountPhoneGet",
+      "description": "Get a random phone number",
+      "source": "operation",
+      "path": "/testing/accounts/phones",
+      "method": "get"
+    },
+    {
+      "term": "testingCreditCardGet",
+      "description": "Retrieve a tokenized test credit card",
+      "source": "operation",
+      "path": "/testing/credit-cards",
+      "method": "post"
+    }
+  ]
+}

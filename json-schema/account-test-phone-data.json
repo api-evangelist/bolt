@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/account-test-phone-data",
+  "title": "account-test-phone-data",
+  "type": "object",
+  "required": [
+    "phone"
+  ],
+  "properties": {
+    "phone": {
+      "type": "string",
+      "format": "phone",
+      "description": "A random, fictitious, unassigned phone number.",
+      "example": "+14155550199"
+    }
+  }
+}

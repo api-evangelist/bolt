@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/create-full-account",
+  "title": "create-full-account",
+  "type": "object",
+  "properties": {
+    "account_details": {
+      "$ref": "#/components/schemas/account"
+    },
+    "customer_data_id": {
+      "type": "string",
+      "description": "A unique identifier for this account on your cart platform.",
+      "example": "5FEB9028D"
+    }
+  }
+}

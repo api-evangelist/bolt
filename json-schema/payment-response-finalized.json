@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/payment-response-finalized",
+  "title": "payment-response-finalized",
+  "type": "object",
+  "required": [
+    ".tag",
+    "status",
+    "transaction"
+  ],
+  "properties": {
+    ".tag": {
+      "type": "string",
+      "enum": [
+        "finalized"
+      ],
+      "example": "finalized",
+      "x-order": 0
+    },
+    "id": {
+      "type": "string",
+      "format": "id",
+      "example": "iKv7t5bgt1gg",
+      "x-order": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "success"
+      ],
+      "example": "success"
+    },
+    "transaction": {
+      "$ref": "#/components/schemas/transaction"
+    }
+  }
+}

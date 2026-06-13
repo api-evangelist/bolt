@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/shopper-recognized-event-data",
+  "title": "shopper-recognized-event-data",
+  "type": "object",
+  "required": [
+    "email",
+    "source",
+    "confidence"
+  ],
+  "properties": {
+    "email": {
+      "type": "string",
+      "description": "Email associated with user.",
+      "example": "xyz@bolt.com"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "unspecified",
+        "login",
+        "checkout",
+        "merchant_api",
+        "custom_rules"
+      ],
+      "description": "Source of shopper recognized event",
+      "example": "login"
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "unspecified",
+        "unverified",
+        "verified"
+      ],
+      "description": "Confidence level of shopper recognized event",
+      "example": "unverified"
+    }
+  }
+}

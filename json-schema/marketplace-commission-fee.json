@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/marketplace-commission-fee",
+  "title": "marketplace-commission-fee",
+  "properties": {
+    "bps": {
+      "format": "int64",
+      "type": "integer",
+      "example": 100
+    },
+    "flat_cents": {
+      "format": "int64",
+      "type": "integer",
+      "example": 100
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "nullable": true,
+      "example": {
+        "plan_type": "pro",
+        "tier": "premium",
+        "region": "us-east-1"
+      }
+    }
+  },
+  "type": "object"
+}

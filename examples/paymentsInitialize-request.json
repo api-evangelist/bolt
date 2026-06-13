@@ -1,0 +1,16 @@
+{
+  "path": "/payments",
+  "method": "post",
+  "content_type": "application/json",
+  "example": {
+    "reference": {
+      "$ref": "#/components/examples/payment-initialize-payment-method-reference"
+    },
+    "credit_card": {
+      "$ref": "#/components/examples/payment-initialize-payment-method-credit-card"
+    },
+    "paypal": {
+      "$ref": "#/components/examples/payment-initialize-payment-method-paypal"
+    }
+  }
+}

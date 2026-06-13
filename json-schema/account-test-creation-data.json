@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/account-test-creation-data",
+  "title": "account-test-creation-data",
+  "type": "object",
+  "required": [
+    "email",
+    "email_state",
+    "phone",
+    "phone_state",
+    "otp_code",
+    "oauth_code"
+  ],
+  "properties": {
+    "email": {
+      "type": "string",
+      "format": "email",
+      "readOnly": true,
+      "example": "alice@example.com"
+    },
+    "email_state": {
+      "type": "string",
+      "enum": [
+        "missing",
+        "unverified",
+        "verified"
+      ],
+      "example": "unverified"
+    },
+    "phone": {
+      "type": "string",
+      "format": "phone",
+      "readOnly": true,
+      "example": "+14155550199"
+    },
+    "phone_state": {
+      "type": "string",
+      "enum": [
+        "missing",
+        "unverified",
+        "verified"
+      ],
+      "example": "verified"
+    },
+    "is_migrated": {
+      "type": "boolean",
+      "writeOnly": true,
+      "example": true
+    },
+    "has_address": {
+      "type": "boolean",
+      "writeOnly": true,
+      "example": true
+    },
+    "has_credit_card": {
+      "type": "boolean",
+      "writeOnly": true,
+      "example": true
+    },
+    "otp_code": {
+      "type": "string",
+      "readOnly": true,
+      "example": "123456"
+    },
+    "oauth_code": {
+      "type": "string",
+      "readOnly": true,
+      "example": "7GSjMRSHs6Ak7C_zvVW6P2IhZOHxMK7HZKW1fMX85ms"
+    }
+  }
+}

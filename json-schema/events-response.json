@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/events-response",
+  "title": "events-response",
+  "type": "object",
+  "properties": {
+    "failedEvents": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/failed-event"
+      }
+    }
+  }
+}

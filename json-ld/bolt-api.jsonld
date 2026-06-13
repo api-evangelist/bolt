@@ -1,0 +1,150 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "bolt": "https://api.bolt.com/vocab#"
+  },
+  "@type": "WebAPI",
+  "name": "Bolt API Reference",
+  "description": "A comprehensive Bolt API reference for interacting with Accounts, Payments, Orders and more.",
+  "version": "3.3.22",
+  "termsOfService": "https://www.bolt.com/end-user-terms",
+  "url": "https://api.bolt.com",
+  "documentation": "https://help.bolt.com/api-bolt/",
+  "provider": {
+    "@type": "Organization",
+    "name": "Bolt",
+    "email": "merchantsupport@bolt.com",
+    "url": "https://www.bolt.com"
+  },
+  "endpointUrl": "https://{environment}.bolt.com/v3",
+  "availableChannel": [
+    {
+      "@type": "WebAPI",
+      "name": "Retrieve account details",
+      "description": "Retrieve a shopper's account details, such as addresses and payment information. The account's details are filtered to be relevant to your merchant account, and some fields may be missing for some accounts. See the schema for details.",
+      "identifier": "accountGet",
+      "httpMethod": "GET",
+      "url": "https://{environment}.bolt.com/v3/account"
+    },
+    {
+      "@type": "WebAPI",
+      "name": "Add an address",
+      "description": "Add an address to the shopper's account",
+      "identifier": "accountAddressCreate",
+      "httpMethod": "POST",
+      "url": "https://{environment}.bolt.com/v3/account/addresses"
+    },
+    {
+      "@type": "WebAPI",
+      "name": "Edit an existing address",
+      "description": "Edit an existing address on the shopper's account. This does not edit addresses that are already associated with other resources, such as transactions or shipments.",
+      "identifier": "accountAddressEdit",
+      "httpMethod": "PUT",
+      "url": "https://{environment}.bolt.com/v3/account/addresses/{id}"
+    },
+    {
+      "@type": "WebAPI",
+      "name": "Delete an existing address",
+      "description": "Delete an existing address. Deleting an address does not invalidate or remove the address from transactions or shipments that are associated with it.",
+      "identifier": "accountAddressDelete",
+      "httpMethod": "DELETE",
+      "url": "https://{environment}.bolt.com/v3/account/addresses/{id}"
+    },
+    {
+      "@type": "WebAPI",
+      "name": "Add a payment method",
+      "description": "Add a payment method to a shopper's Bolt Account Wallet. For security purposes, this request must come from your backend. <br/> **Note**: Before using this API, the credit card details must be tokenized by Bolt's credit card tokenization service. Please review our [Bolt Payment Field Component](https://help.bolt.com/products/ignite/api-implementation/#enhance-payments) or [Install the Bolt Tokenizer](https://help.bolt.com/developers/references/bolt-tokenizer) documentation.",
+      "identifier": "accountAddPaymentMethod",
+      "httpMethod": "POST",
+      "url": "https://{environment}.bolt.com/v3/account/payment-methods"
+    },
+    {
+      "@type": "WebAPI",
+      "name": "Delete an existing payment method",
+      "description": "Delete an existing payment method. Deleting a payment method does not invalidate or remove it from transactions or orders that are associated with it.",
+      "identifier": "accountPaymentMethodDelete",
+      "httpMethod": "DELETE",
+      "url": "https://{environment}.bolt.com/v3/account/payment-methods/{id}"
+    },
+    {
+      "@type": "WebAPI",
+      "name": "Initialize a Bolt payment for logged in shoppers",
+      "description": "Initialize a Bolt logged-in shopper's intent to pay for a cart, using the specified payment method. Payments must be finalized before indicating the payment result to the shopper. Some payment methods will finalize automatically after initialization. For these payments, they will transition directly to \"finalized\" and the response from Initialize Payment will contain a finalized payment.\n",
+      "identifier": "paymentsInitialize",
+      "httpMethod": "POST",
+      "url": "https://{environment}.bolt.com/v3/payments"
+    },
+    {
+      "@type": "WebAPI",
+      "name": "Finalize a pending payment",
+      "description": "Finalize a pending payment being made by a Bolt logged-in shopper. Upon receipt of a finalized payment result, payment success should be communicated to the shopper.",
+      "identifier": "paymentsAction",
+      "httpMethod": "POST",
+      "url": "https://{environment}.bolt.com/v3/payments/{id}"
+    },
+    {
+      "@type": "WebAPI",
+      "name": "Initialize a Bolt payment for guest shoppers",
+      "description": "Initialize a Bolt guest shopper's intent to pay for a cart, using the specified payment method. Payments must be finalized before indicating the payment result to the shopper. Some payment methods will finalize automatically after initialization. For these payments, they will transition directly to \"finalized\" and the response from Initialize Payment will contain a finalized payment.",
+      "identifier": "guestPaymentsInitialize",
+      "httpMethod": "POST",
+      "url": "https://{environment}.bolt.com/v3/guest/payments"
+    },
+    {
+      "@type": "WebAPI",
+      "name": "Finalize a pending guest payment",
+      "description": "Finalize a pending payment being made by a Bolt guest shopper. Upon receipt of a finalized payment result, payment success should be communicated to the shopper.",
+      "identifier": "guestPaymentsAction",
+      "httpMethod": "POST",
+      "url": "https://{environment}.bolt.com/v3/guest/payments/{id}"
+    },
+    {
+      "@type": "WebAPI",
+      "name": "Create an order that was prepared outside the Bolt ecosystem.",
+      "description": "Create an order that was prepared outside the Bolt ecosystem. Some Bolt-powered flows automatically manage order creation - in those flows the order ID will be provided separately and not through this API.",
+      "identifier": "ordersCreate",
+      "httpMethod": "POST",
+      "url": "https://{environment}.bolt.com/v3/orders"
+    },
+    {
+      "@type": "WebAPI",
+      "name": "Get OAuth token",
+      "description": "Retrieve a new or refresh an existing OAuth token.",
+      "identifier": "oauthGetToken",
+      "httpMethod": "POST",
+      "url": "https://{environment}.bolt.com/v3/oauth/token"
+    },
+    {
+      "@type": "WebAPI",
+      "name": "Callback to update or create a full shopper account",
+      "description": "Create or update a shopper account with profile information, payment and addresses. This is also known as the \"upsert account\" API, a combination of update and insert.",
+      "identifier": "callbackAccountUpsert",
+      "httpMethod": "POST",
+      "url": "https://{environment}.bolt.com/v3/callbacks/accounts"
+    },
+    {
+      "@type": "WebAPI",
+      "name": "Create a test account",
+      "description": "Create a Bolt shopper account for testing purposes.",
+      "identifier": "testingAccountCreate",
+      "httpMethod": "POST",
+      "url": "https://{environment}.bolt.com/v3/testing/accounts"
+    },
+    {
+      "@type": "WebAPI",
+      "name": "Get a random phone number",
+      "description": "Get a random, fictitious phone number that is not assigned to any existing Bolt account.",
+      "identifier": "testingAccountPhoneGet",
+      "httpMethod": "GET",
+      "url": "https://{environment}.bolt.com/v3/testing/accounts/phones"
+    },
+    {
+      "@type": "WebAPI",
+      "name": "Retrieve a tokenized test credit card",
+      "description": "Retrieve a test credit card that can be used to process payments in your Bolt testing environment. The response includes the card's Bolt credit card token.",
+      "identifier": "testingCreditCardGet",
+      "httpMethod": "POST",
+      "url": "https://{environment}.bolt.com/v3/testing/credit-cards"
+    }
+  ]
+}

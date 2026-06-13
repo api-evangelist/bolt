@@ -1,0 +1,11 @@
+{
+  "path": "/orders",
+  "method": "post",
+  "status": "200",
+  "content_type": "application/json",
+  "example": {
+    "finalized": {
+      "$ref": "#/components/examples/order-response"
+    }
+  }
+}

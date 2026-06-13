@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/payment-event-data",
+  "title": "payment-event-data",
+  "type": "object",
+  "required": [
+    "cart"
+  ],
+  "properties": {
+    "cart": {
+      "$ref": "#/components/schemas/cart-2"
+    },
+    "payment_type": {
+      "type": "string",
+      "description": "The chosen method of payment.",
+      "example": "Credit Card"
+    }
+  }
+}

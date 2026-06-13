@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/cart-discount",
+  "title": "cart-discount",
+  "required": [
+    "amount"
+  ],
+  "type": "object",
+  "properties": {
+    "amount": {
+      "$ref": "#/components/schemas/amount"
+    },
+    "code": {
+      "type": "string",
+      "description": "Discount code.",
+      "maxLength": 1024,
+      "example": "SUMMER10DISCOUNT"
+    },
+    "details_url": {
+      "type": "string",
+      "description": "Used to provide a link to additional details, such as a landing page, associated with the discount offering.",
+      "maxLength": 8192,
+      "format": "url",
+      "example": "https://www.example.com/SUMMER-SALE"
+    }
+  }
+}

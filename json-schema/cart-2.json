@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/cart-2",
+  "title": "cart-2",
+  "type": "object",
+  "required": [
+    "cart_id",
+    "currency",
+    "items"
+  ],
+  "properties": {
+    "cart_id": {
+      "type": "string",
+      "description": "The ID of the cart.",
+      "example": "cart_123"
+    },
+    "currency": {
+      "type": "string",
+      "description": "A supported currency, in 3-letter ISO 4217 currency code.",
+      "enum": [
+        "AUD",
+        "CAD",
+        "EUR",
+        "GBP",
+        "USD"
+      ],
+      "example": "USD"
+    },
+    "tax": {
+      "type": "integer",
+      "description": "The monetary total tax amount for the cart, in cents.",
+      "format": "int64",
+      "example": 300
+    },
+    "discount": {
+      "type": "integer",
+      "description": "The monetary discount value associated with the cart, in cents.",
+      "format": "int64",
+      "example": 222
+    },
+    "discount_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "A list of all discount codes used for this cart.",
+      "example": [
+        "SUMMERFUN",
+        "10OFF"
+      ]
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/item"
+      }
+    }
+  }
+}

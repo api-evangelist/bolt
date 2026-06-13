@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.bolt.com/schemas/payment-method-paypal",
+  "title": "PayPal Payment Method",
+  "type": "object",
+  "required": [
+    ".tag",
+    "success_url",
+    "cancel_url"
+  ],
+  "properties": {
+    ".tag": {
+      "type": "string",
+      "enum": [
+        "paypal"
+      ],
+      "example": "paypal",
+      "x-order": 0
+    },
+    "success_url": {
+      "type": "string",
+      "description": "Redirect URL for successful PayPal transaction.",
+      "format": "url",
+      "writeOnly": true,
+      "example": "https://www.example.com/paypal-callback/success"
+    },
+    "cancel_url": {
+      "type": "string",
+      "description": "Redirect URL for canceled PayPal transaction.",
+      "format": "url",
+      "writeOnly": true,
+      "example": "https://www.example.com/paypal-callback/cancel"
+    }
+  }
+}
