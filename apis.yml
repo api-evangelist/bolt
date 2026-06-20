@@ -9,7 +9,7 @@ description: >
   The Bolt Shopper Network allows returning shoppers to complete purchases with
   stored credentials across all Bolt-powered merchants.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/bolt/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -30,7 +30,7 @@ apis:
       Core Bolt REST API for generating order tokens, managing transactions,
       pulling financial statements, and integrating one-click checkout into
       merchant storefronts. Supports both sandbox and production environments.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://help.bolt.com/api-bolt/
     baseURL: https://api.bolt.com
     tags:
@@ -50,7 +50,7 @@ apis:
       API for configuring and embedding Bolt's checkout experience and shopper
       account management directly into merchant storefronts, including login
       modals, account creation, passwordless authentication, and payment flows.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://help.bolt.com/api-embedded-v3/
     baseURL: https://api.bolt.com
     tags:
@@ -68,7 +68,7 @@ apis:
       API enabling merchant backends to respond to Bolt checkout events including
       discount application, cart creation and updates, shipping and tax calculations,
       and transaction status updates.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://help.bolt.com/developers/apis/
     baseURL: https://api.bolt.com
     tags:
@@ -86,7 +86,7 @@ apis:
     description: >
       API for creating and managing Bolt Subscriptions, enabling recurring billing
       and subscription commerce on top of the Bolt checkout platform.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://help.bolt.com/developers/apis/
     baseURL: https://api.bolt.com
     tags:
@@ -101,7 +101,7 @@ apis:
     description: >
       API for implementing custom back-office integrations including direct payment
       processing and card tokenization for merchant-side payment workflows.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://help.bolt.com/developers/apis/
     baseURL: https://api.bolt.com
     tags:
@@ -117,7 +117,7 @@ apis:
     description: >
       API for platforms to complete connected merchant onboarding to Bolt,
       enabling platform partners to programmatically onboard new merchants.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://help.bolt.com/developers/apis/
     baseURL: https://api.bolt.com
     tags:
@@ -133,7 +133,7 @@ apis:
     description: >
       Beta API enabling Bolt checkout links and checkout experiences across any
       surface, including social commerce, email, and other off-site channels.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://help.bolt.com/products/checkout-everywhere/checkout-links/
     baseURL: https://api.bolt.com
     tags:
