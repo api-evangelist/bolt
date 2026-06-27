@@ -182,7 +182,7 @@ common:
   - type: Authentication
     url: https://help.bolt.com/developers/tools/api-keys/
 
-  - type: Changelog
+  - type: ChangeLog
     url: https://help.bolt.com/releases/
 
   - type: Support
