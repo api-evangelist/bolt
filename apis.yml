@@ -146,6 +146,12 @@ apis:
 
 common:
 
+  - type: TrustCenter
+    url: security/bolt-trust-center.yml
+  - type: DomainSecurity
+    url: security/bolt-domain-security.yml
+  - type: Authentication
+    url: authentication/bolt-authentication.yml
   - type: OAuthScopes
     url: scopes/bolt-scopes.yml
   - type: Website
