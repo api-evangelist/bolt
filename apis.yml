@@ -146,6 +146,8 @@ apis:
 
 common:
 
+  - type: OAuthScopes
+    url: scopes/bolt-scopes.yml
   - type: Website
     url: https://www.bolt.com/
 

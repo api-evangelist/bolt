@@ -1,0 +1,31 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/bolt-api-reference-openapi.yaml
+schemes:
+- name: oauth
+  source: openapi/bolt-api-reference-openapi.yaml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: /v1/oauth/authorize
+    tokenUrl: /v1/oauth/token
+scopes:
+- scope: bolt.account.manage
+  description: This scope grants permissions to perform read/edit/delete actions on Bolt Account
+    data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/bolt-api-reference-openapi.yaml
+- scope: bolt.account.view
+  description: This scope grants permissions to perform read only actions on Bolt Account data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/bolt-api-reference-openapi.yaml
+- scope: openid
+  description: This scope grants permissions that enable Bolt Single Sign-On (SSO) by granting
+    a JSON Web Token (JWT) that stores account data.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/bolt-api-reference-openapi.yaml
