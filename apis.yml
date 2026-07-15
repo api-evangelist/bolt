@@ -146,6 +146,8 @@ apis:
 
 common:
 
+  - type: AgenticAccess
+    url: agentic-access/bolt-agentic-access.yml
   - type: TrustCenter
     url: security/bolt-trust-center.yml
   - type: DomainSecurity
