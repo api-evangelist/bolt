@@ -1,0 +1,298 @@
+openapi: 3.0.0
+info:
+  version: 3.3.22
+  title: Bolt API Reference Account Testing API
+  description: A comprehensive Bolt API reference for interacting with Accounts, Payments, Orders and more.
+  termsOfService: https://www.bolt.com/end-user-terms
+  contact:
+    name: Bolt
+    email: merchantsupport@bolt.com
+    url: https://help.bolt.com/api-bolt/
+servers:
+- url: https://{environment}.bolt.com/v3
+  variables:
+    environment:
+      enum:
+      - api
+      - api-sandbox
+      default: api-sandbox
+tags:
+- name: Testing
+  description: Use the Testing API to generate and retrieve test data to verify a subset of flows in non-production environments.
+paths:
+  /testing/accounts:
+    post:
+      summary: Create a test account
+      operationId: testingAccountCreate
+      x-speakeasy-name-override: CreateAccount
+      description: Create a Bolt shopper account for testing purposes.
+      tags:
+      - Testing
+      security:
+      - api-key: []
+      parameters:
+      - $ref: '#/components/parameters/x-publishable-key'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/account-test-creation-data'
+      responses:
+        '200':
+          description: The account was successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/account-test-creation-data'
+        4XX:
+          $ref: '#/components/responses/response-4xx'
+        default:
+          $ref: '#/components/responses/response-default'
+  /testing/accounts/phones:
+    get:
+      summary: Get a random phone number
+      operationId: testingAccountPhoneGet
+      description: Get a random, fictitious phone number that is not assigned to any existing Bolt account.
+      tags:
+      - Testing
+      security:
+      - api-key: []
+      parameters:
+      - $ref: '#/components/parameters/x-publishable-key'
+      responses:
+        '200':
+          description: Successfully generated a random, fictitious, unassigned phone number.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/account-test-phone-data'
+        4XX:
+          $ref: '#/components/responses/response-4xx'
+        default:
+          $ref: '#/components/responses/response-default'
+  /testing/credit-cards:
+    post:
+      summary: Retrieve a tokenized test credit card
+      operationId: testingCreditCardGet
+      x-speakeasy-name-override: GetCreditCard
+      description: Retrieve a test credit card that can be used to process payments in your Bolt testing environment. The response includes the card's Bolt credit card token.
+      tags:
+      - Testing
+      security:
+      - api-key: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - type
+              properties:
+                type:
+                  type: string
+                  description: The expected authorization result when using the generated token for a payment.
+                  enum:
+                  - approve
+                  - decline
+                  example: approve
+      responses:
+        '200':
+          description: Successfully generated test credit card details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/test-credit-card'
+        4XX:
+          $ref: '#/components/responses/response-4xx'
+        default:
+          $ref: '#/components/responses/response-default'
+components:
+  schemas:
+    account-test-creation-data:
+      type: object
+      required:
+      - email
+      - email_state
+      - phone
+      - phone_state
+      - otp_code
+      - oauth_code
+      properties:
+        email:
+          type: string
+          format: email
+          readOnly: true
+          example: alice@example.com
+        email_state:
+          type: string
+          enum:
+          - missing
+          - unverified
+          - verified
+          example: unverified
+        phone:
+          type: string
+          format: phone
+          readOnly: true
+          example: '+14155550199'
+        phone_state:
+          type: string
+          enum:
+          - missing
+          - unverified
+          - verified
+          example: verified
+        is_migrated:
+          type: boolean
+          writeOnly: true
+          example: true
+        has_address:
+          type: boolean
+          writeOnly: true
+          example: true
+        has_credit_card:
+          type: boolean
+          writeOnly: true
+          example: true
+        otp_code:
+          type: string
+          readOnly: true
+          example: '123456'
+        oauth_code:
+          type: string
+          readOnly: true
+          example: 7GSjMRSHs6Ak7C_zvVW6P2IhZOHxMK7HZKW1fMX85ms
+    credit-card-network:
+      type: string
+      description: The credit card's network.
+      enum:
+      - visa
+      - mastercard
+      - amex
+      - discover
+      - jcb
+      - dinersclub
+      - unionpay
+      - alliancedata
+      - citiplcc
+      example: visa
+      x-oapi-codegen-extra-tags:
+        validate: required
+    test-credit-card:
+      required:
+      - network
+      - bin
+      - last4
+      - expiration
+      - token
+      type: object
+      properties:
+        network:
+          $ref: '#/components/schemas/credit-card-network'
+        bin:
+          type: string
+          description: The Bank Identification Number (BIN). This is typically the first 4 to 6 digits of the account number.
+          pattern: ^\d+$
+          example: '411111'
+        last4:
+          type: string
+          description: The account number's last four digits.
+          pattern: ^\d{4}$
+          example: '1004'
+        expiration:
+          type: string
+          format: date-time
+          description: The token's expiration date. Tokens used past their expiration will be rejected.
+          example: '2023-10-31T06:00:00Z'
+        token:
+          type: string
+          description: The Bolt token associated with the credit card.
+          example: a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0
+    error:
+      type: object
+      required:
+      - .tag
+      - message
+      properties:
+        .tag:
+          type: string
+          enum:
+          - unauthorized
+          - forbidden
+          - unprocessable_request
+          - not_found
+          description: The type of error returned
+          example: unprocessable_request
+        message:
+          type: string
+          description: A human-readable error message, which might include information specific to the request that was made.
+          example: We were unable to process your request.
+    field-error:
+      type: object
+      description: An error that pertains to validation of a specific field in the request.
+      required:
+      - .tag
+      - message
+      - field
+      properties:
+        .tag:
+          type: string
+          enum:
+          - invalid_input_parameter
+          description: The type of error returned
+          example: invalid_input_parameter
+        message:
+          type: string
+          description: A human-readable error message, which might include information specific to the request that was made.
+          example: We were unable to process your request.
+        field:
+          type: string
+          description: The field (in its hierarchical form) that is failing validation.
+          example: address.phone
+    account-test-phone-data:
+      type: object
+      required:
+      - phone
+      properties:
+        phone:
+          type: string
+          format: phone
+          description: A random, fictitious, unassigned phone number.
+          example: '+14155550199'
+  responses:
+    response-4xx:
+      description: An error has occurred, and further details are contained in the response
+      content:
+        application/json:
+          schema:
+            oneOf:
+            - $ref: '#/components/schemas/error'
+            - $ref: '#/components/schemas/field-error'
+    response-default:
+      description: An error has occurred, and no further details are provided (e.g. 5xx errors)
+  parameters:
+    x-publishable-key:
+      description: The publicly shareable identifier used to identify your Bolt merchant division.
+      in: header
+      name: X-Publishable-Key
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    api-key:
+      type: apiKey
+      in: header
+      name: X-API-Key
+    oauth:
+      flows:
+        authorizationCode:
+          authorizationUrl: /v1/oauth/authorize
+          refreshUrl: /v1/oauth/token
+          tokenUrl: /v1/oauth/token
+          scopes:
+            bolt.account.manage: This scope grants permissions to perform read/edit/delete actions on Bolt Account data
+            bolt.account.view: This scope grants permissions to perform read only actions on Bolt Account data
+            openid: This scope grants permissions that enable Bolt Single Sign-On (SSO) by granting a JSON Web Token (JWT) that stores account data.
+      type: oauth2

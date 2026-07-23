@@ -1,0 +1,276 @@
+openapi: 3.0.0
+info:
+  version: 3.3.22
+  title: Bolt API Reference Account OAuth API
+  description: A comprehensive Bolt API reference for interacting with Accounts, Payments, Orders and more.
+  termsOfService: https://www.bolt.com/end-user-terms
+  contact:
+    name: Bolt
+    email: merchantsupport@bolt.com
+    url: https://help.bolt.com/api-bolt/
+servers:
+- url: https://{environment}.bolt.com/v3
+  variables:
+    environment:
+      enum:
+      - api
+      - api-sandbox
+      default: api-sandbox
+tags:
+- name: OAuth
+  description: Use the OAuth API to enable your ecommerce server to make API calls on behalf of a Bolt logged-in shopper.
+  externalDocs:
+    url: https://help.bolt.com/products/accounts/direct-api/oauth-guide/
+paths:
+  /oauth/token:
+    post:
+      summary: Get OAuth token
+      operationId: oauthGetToken
+      x-speakeasy-name-override: GetToken
+      description: Retrieve a new or refresh an existing OAuth token.
+      tags:
+      - OAuth
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              oneOf:
+              - $ref: '#/components/schemas/authorization-code-request'
+              - $ref: '#/components/schemas/refresh-token-request'
+            examples:
+              authorization-code:
+                $ref: '#/components/examples/authorization-code'
+              refresh-token:
+                $ref: '#/components/examples/refresh-token'
+      responses:
+        '200':
+          description: Access token is successfully fetched
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get-access-token-response'
+        4XX:
+          $ref: '#/components/responses/response-4xx'
+        default:
+          $ref: '#/components/responses/response-default'
+components:
+  schemas:
+    refresh-token-request:
+      type: object
+      description: Refresh an existing access token, using the refresh token provided in the initial authorization.
+      required:
+      - client_id
+      - client_secret
+      - grant_type
+      - scope
+      - refresh_token
+      properties:
+        client_id:
+          type: string
+          description: The OAuth client ID, which corresponds to the merchant publishable key, which can be retrieved in your Merchant Dashboard.
+          example: 8fd9diIy59sj.IraJdeIgmdsO.fd233434fg2c616cgo932aa6e1e4fc627a9385045gr395222a127gi93c595rg4
+        client_secret:
+          type: string
+          description: The OAuth client secret, which corresponds the merchant API key, which can be retrieved in your Merchant Dashboard.
+          example: 23ee7ec7301779eaff451d7c6f6cba322499e3c0ec752f800c72a8f99217e3a8
+        scope:
+          description: The requested scopes. If the request is successful, the OAuth client will be able to perform operations requiring these scopes.
+          externalDocs:
+            description: OAuth Developer Reference
+            url: https://help.bolt.com/developers/references/bolt-oauth/#scopes
+          type: array
+          items:
+            type: string
+            enum:
+            - bolt.account.manage
+            - bolt.account.view
+            - openid
+        state:
+          description: A randomly generated string sent along with an authorization code. This must be included if provided. It is used to prevent cross-site request forgery (CSRF) attacks.
+          type: string
+          example: xyzABC123
+        grant_type:
+          description: The type of OAuth 2.0 grant being utilized.
+          enum:
+          - refresh_token
+          type: string
+          example: refresh_token
+        refresh_token:
+          description: The value of the refresh token issued to you in the originating OAuth token request.
+          type: string
+          example: 4hJYNO4GHvALZoocXoLenfNeFy1RR5ZT6G5JYrFbvkI.Q_PqV0lIszCNoN-85EwD-2nYZOVEepVgJSolx-Jbzrs
+    base-oauth-token-response:
+      type: object
+      properties:
+        access_token:
+          description: An access token you can use to make requests on behalf of a Bolt shopper.
+          type: string
+          example: KCqordmSK6_lpkaXaXfGD8LwnKMGGOYy4Ju2IaBXpJI.CzOF7QOmGGQEgIzBjxOEh1FbRdDpzf9zbm9eHrCZ6zw
+        expires_in:
+          description: The access token's expiration, in seconds.
+          type: integer
+          example: 3600
+        refresh_token:
+          description: A refresh token you can use to issue a brand new access token without obtaining a new authorization code.
+          type: string
+          example: 4hJYNO4GHvALZoocXoLenfNeFy1RR5ZT6G5JYrFbvkI.Q_PqV0lIszCNoN-85EwD-2nYZOVEepVgJSolx-Jbzrs
+        refresh_token_scope:
+          description: The scope granted to the refresh token. Currently, refreshed token will only grant view permissions.
+          type: string
+          example: bolt.account.view
+        scope:
+          description: The scope granted to access token, depending on the scope granted to the authorization code as well as the scope parameter. Options include `bolt.account.manage`, `bolt.account.view`, `openid`. Multiple values can be returned as space-separated strings.
+          type: string
+          example: bolt.account.manage openid
+        token_type:
+          description: The token_type will always be bearer.
+          type: string
+          example: bearer
+    authorization-code-request:
+      type: object
+      description: Perform the initial token exchange, using the authorization code provided by Bolt's Login Modal.
+      required:
+      - client_id
+      - client_secret
+      - grant_type
+      - scope
+      - code
+      properties:
+        client_id:
+          type: string
+          description: The OAuth client ID, which corresponds to the merchant publishable key, which can be retrieved in your Merchant Dashboard.
+          example: 8fd9diIy59sj.IraJdeIgmdsO.fd233434fg2c616cgo932aa6e1e4fc627a9385045gr395222a127gi93c595rg4
+        client_secret:
+          type: string
+          description: The OAuth client secret, which corresponds the merchant API key, which can be retrieved in your Merchant Dashboard.
+          example: 23ee7ec7301779eaff451d7c6f6cba322499e3c0ec752f800c72a8f99217e3a8
+        scope:
+          description: The requested scopes. If the request is successful, the OAuth client will be able to perform operations requiring these scopes.
+          externalDocs:
+            description: OAuth Developer Reference
+            url: https://help.bolt.com/developers/references/bolt-oauth/#scopes
+          type: array
+          items:
+            type: string
+            enum:
+            - bolt.account.manage
+            - bolt.account.view
+            - openid
+        state:
+          description: A randomly generated string sent along with an authorization code. This must be included if provided. It is used to prevent cross-site request forgery (CSRF) attacks.
+          type: string
+          example: xyzABC123
+        grant_type:
+          description: The type of OAuth 2.0 grant being utilized.
+          enum:
+          - authorization_code
+          type: string
+          example: authorization_code
+        code:
+          description: Fetched value using OTP value from the Authorization Modal.
+          type: string
+          example: 7GSjMRSHs6Ak7C_zvVW6P2IhZOHxMK7HZKW1fMX85ms
+    error:
+      type: object
+      required:
+      - .tag
+      - message
+      properties:
+        .tag:
+          type: string
+          enum:
+          - unauthorized
+          - forbidden
+          - unprocessable_request
+          - not_found
+          description: The type of error returned
+          example: unprocessable_request
+        message:
+          type: string
+          description: A human-readable error message, which might include information specific to the request that was made.
+          example: We were unable to process your request.
+    field-error:
+      type: object
+      description: An error that pertains to validation of a specific field in the request.
+      required:
+      - .tag
+      - message
+      - field
+      properties:
+        .tag:
+          type: string
+          enum:
+          - invalid_input_parameter
+          description: The type of error returned
+          example: invalid_input_parameter
+        message:
+          type: string
+          description: A human-readable error message, which might include information specific to the request that was made.
+          example: We were unable to process your request.
+        field:
+          type: string
+          description: The field (in its hierarchical form) that is failing validation.
+          example: address.phone
+    get-access-token-response:
+      allOf:
+      - type: object
+        properties:
+          id_token:
+            description: A JSON Web Token (JWT) issued when the request includes the scope open_id.
+            type: string
+            example: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsaWNlQGV4YW1wbGUuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImV4cCI6MTcwNTY1MTczMSwiZmlyc3RfbmFtZSI6IkFsaWNlIiwiaXNzIjoiaHR0cDovL2FwaS5ib2x0LmNvbSIsImxhc3RfbmFtZSI6IkJha2VyIiwicGhvbmVfbnVtYmVyIjoiKzE0MTU1NTUwMTk5IiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjp0cnVlLCJpYXQiOjE3MDU2NDg0MjF9.Ir0aKx40zfNCZol1DnqchFx9ciHlyZY9y10mndEjOBHhpHif8-7aZl2UoJVs_0Hj-5ArEouUD6n-y1SJD0Wns-gDMoA0Etoc5dT_0zt0Kw5T8FvJWbyKyyGSDEwPFVADIRxDPMpVoHx0C0nwr_GudnIX7YG6p2HCsoGm2C04ZxKpifSixB3-xNB6k9u1ESWh0KjMCYzBQ2x9wbQ_S6kFtio075PFYcZ3iRQz8oD15NsZDd2czzZkRnGTGlpG0sAvScLXMvDDOWBIu-4wvOEOT7avunJQ_rOCYUlyJe7JGh0QllpeJNau8kx-4YGMeFTkeGM_hPIKsRF1e6o_rWp5CMJnmJDPme-zlJxWodyaHNed5XW-4DR7blv_PFOJNrRvymRoTOd74LIpS21GRCNYrphj7N6-TsSfO9hMQ9ehxrgNAryWbVtTM_3VvWyzX-SRa7BcRkS97sokxc04s3cbXra3x6brE3uL1yoOWNf8GDZNkv1uUAnrOZcTuLacrPjkQgOPb-chMiWS1L0Zd1wX3rqpeCyEswsGKxRRkpgwoBaVVQmLB9m51B6SXEvURTcy2Hx8KzgfXQ_-uC-KrniQxWzYms8A1lypKXkEcyMD2E4Q7EB4UeD2qZAk4tZo611uHegaHaEM7EQyFN3nxvibaqFpXzdxVmOCX0_wQr1nDNA
+      - $ref: '#/components/schemas/base-oauth-token-response'
+  examples:
+    refresh-token:
+      summary: Refresh an existing token.
+      description: Refresh an existing access token, using the refresh token provided in the initial authorization.
+      value:
+        client_id: 8fd9diIy59sj.IraJdeIgmdsO.fd233434fg2c616cgo932aa6e1e4fc627a9385045gr395222a127gi93c595rg4
+        client_secret: 23ee7ec7301779eaff451d7c6f6cba322499e3c0ec752f800c72a8f99217e3a8
+        scope:
+        - bolt.account.view
+        state: xyzABC123
+        grant_type: refresh_token
+        refresh_token: 4hJYNO4GHvALZoocXoLenfNeFy1RR5ZT6G5JYrFbvkI.Q_PqV0lIszCNoN-85EwD-2nYZOVEepVgJSolx-Jbzrs
+    authorization-code:
+      summary: Exchange an authorization code
+      description: Perform the initial token exchange, using the authorization code provided by Bolt's Login Modal.
+      value:
+        client_id: 8fd9diIy59sj.IraJdeIgmdsO.fd233434fg2c616cgo932aa6e1e4fc627a9385045gr395222a127gi93c595rg4
+        client_secret: 23ee7ec7301779eaff451d7c6f6cba322499e3c0ec752f800c72a8f99217e3a8
+        scope:
+        - bolt.account.manage
+        - bolt.account.view
+        - openid
+        state: xyzABC123
+        grant_type: authorization_code
+        code: 7GSjMRSHs6Ak7C_zvVW6P2IhZOHxMK7HZKW1fMX85ms
+  responses:
+    response-4xx:
+      description: An error has occurred, and further details are contained in the response
+      content:
+        application/json:
+          schema:
+            oneOf:
+            - $ref: '#/components/schemas/error'
+            - $ref: '#/components/schemas/field-error'
+    response-default:
+      description: An error has occurred, and no further details are provided (e.g. 5xx errors)
+  securitySchemes:
+    api-key:
+      type: apiKey
+      in: header
+      name: X-API-Key
+    oauth:
+      flows:
+        authorizationCode:
+          authorizationUrl: /v1/oauth/authorize
+          refreshUrl: /v1/oauth/token
+          tokenUrl: /v1/oauth/token
+          scopes:
+            bolt.account.manage: This scope grants permissions to perform read/edit/delete actions on Bolt Account data
+            bolt.account.view: This scope grants permissions to perform read only actions on Bolt Account data
+            openid: This scope grants permissions that enable Bolt Single Sign-On (SSO) by granting a JSON Web Token (JWT) that stores account data.
+      type: oauth2
