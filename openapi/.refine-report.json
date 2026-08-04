@@ -1,0 +1,24 @@
+{
+  "provider": "bolt",
+  "sources": [
+    "bolt-account-api-openapi.yml",
+    "bolt-callbacks-api-openapi.yml",
+    "bolt-oauth-api-openapi.yml",
+    "bolt-orders-api-openapi.yml",
+    "bolt-payments-api-openapi.yml",
+    "bolt-testing-api-openapi.yml"
+  ],
+  "outputs": [
+    "bolt-account-api-openapi.yml",
+    "bolt-callbacks-api-openapi.yml",
+    "bolt-oauth-api-openapi.yml",
+    "bolt-orders-api-openapi.yml",
+    "bolt-payments-api-openapi.yml",
+    "bolt-testing-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
