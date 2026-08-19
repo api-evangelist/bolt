@@ -1,0 +1,258 @@
+{
+  "item": [
+    {
+      "id": "61b96b02-51ba-46fd-9116-59d00367fccd",
+      "name": "Callbacks",
+      "description": {
+        "content": "Implement Callback endpoints on your servers to power Bolt experiences. Different Bolt packages require different callbacks to be implemented. Consult your relevant product documentation for a list of required callbacks.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5b41a2c1-d728-4681-b32f-14f957cfa45b",
+          "name": "Callback to update or create a full shopper account",
+          "request": {
+            "name": "Callback to update or create a full shopper account",
+            "description": {
+              "content": "Create or update a shopper account with profile information, payment and addresses. This is also known as the \"upsert account\" API, a combination of update and insert.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "callbacks",
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": " (This can only be one of api,api-sandbox)",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) A Bolt-signed hash-based message authentication code (HMAC) to verify that the sender is Bolt.",
+                "key": "X-Bolt-Hmac-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"account_details\": {\n    \"addresses\": [\n      {\n        \"first_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"street_address1\": \"<string>\",\n        \"locality\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country_code\": \"<string>\",\n        \"company\": \"<string>\",\n        \"street_address2\": \"<string>\",\n        \"region\": \"<string>\",\n        \"email\": \"<email>\",\n        \"phone\": \"<phone>\"\n      },\n      {\n        \"first_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"street_address1\": \"<string>\",\n        \"locality\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country_code\": \"<string>\",\n        \"company\": \"<string>\",\n        \"street_address2\": \"<string>\",\n        \"region\": \"<string>\",\n        \"email\": \"<email>\",\n        \"phone\": \"<phone>\"\n      }\n    ],\n    \"payment_methods\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"profile\": {\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"email\": \"<email>\",\n      \"phone\": \"<phone>\"\n    }\n  },\n  \"customer_data_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "658386bf-71f9-42b7-a6c6-6a3e293927b4",
+              "name": "The account details were successfully created/updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "callbacks",
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api,api-sandbox)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) A Bolt-signed hash-based message authentication code (HMAC) to verify that the sender is Bolt.",
+                    "key": "X-Bolt-Hmac-Sha256",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account_details\": {\n    \"addresses\": [\n      {\n        \"first_name\": \"Alice\",\n        \"last_name\": \"Baker\",\n        \"street_address1\": \"535 Mission St, Ste 1401\",\n        \"locality\": \"San Francisco\",\n        \"postal_code\": \"94105\",\n        \"country_code\": \"US\",\n        \"company\": \"ACME Corporation\",\n        \"street_address2\": \"c/o Shipping Department\",\n        \"region\": \"CA\",\n        \"email\": \"alice@example.com\",\n        \"phone\": \"+14155550199\"\n      },\n      {\n        \"first_name\": \"Alice\",\n        \"last_name\": \"Baker\",\n        \"street_address1\": \"535 Mission St, Ste 1401\",\n        \"locality\": \"San Francisco\",\n        \"postal_code\": \"94105\",\n        \"country_code\": \"US\",\n        \"company\": \"ACME Corporation\",\n        \"street_address2\": \"c/o Shipping Department\",\n        \"region\": \"CA\",\n        \"email\": \"alice@example.com\",\n        \"phone\": \"+14155550199\"\n      }\n    ],\n    \"payment_methods\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"profile\": {\n      \"first_name\": \"Alice\",\n      \"last_name\": \"Baker\",\n      \"email\": \"alice@example.com\",\n      \"phone\": \"+14155550199\"\n    }\n  },\n  \"customer_data_id\": \"5FEB9028D\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2a990899-f382-4dbe-9295-88f94f2fd84a",
+              "name": "An error has occurred, and further details are contained in the response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "callbacks",
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api,api-sandbox)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) A Bolt-signed hash-based message authentication code (HMAC) to verify that the sender is Bolt.",
+                    "key": "X-Bolt-Hmac-Sha256",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account_details\": {\n    \"addresses\": [\n      {\n        \"first_name\": \"Alice\",\n        \"last_name\": \"Baker\",\n        \"street_address1\": \"535 Mission St, Ste 1401\",\n        \"locality\": \"San Francisco\",\n        \"postal_code\": \"94105\",\n        \"country_code\": \"US\",\n        \"company\": \"ACME Corporation\",\n        \"street_address2\": \"c/o Shipping Department\",\n        \"region\": \"CA\",\n        \"email\": \"alice@example.com\",\n        \"phone\": \"+14155550199\"\n      },\n      {\n        \"first_name\": \"Alice\",\n        \"last_name\": \"Baker\",\n        \"street_address1\": \"535 Mission St, Ste 1401\",\n        \"locality\": \"San Francisco\",\n        \"postal_code\": \"94105\",\n        \"country_code\": \"US\",\n        \"company\": \"ACME Corporation\",\n        \"street_address2\": \"c/o Shipping Department\",\n        \"region\": \"CA\",\n        \"email\": \"alice@example.com\",\n        \"phone\": \"+14155550199\"\n      }\n    ],\n    \"payment_methods\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"profile\": {\n      \"first_name\": \"Alice\",\n      \"last_name\": \"Baker\",\n      \"email\": \"alice@example.com\",\n      \"phone\": \"+14155550199\"\n    }\n  },\n  \"customer_data_id\": \"5FEB9028D\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0063210a-4dc7-46a3-b77a-6fd9c6506254",
+              "name": "An error has occurred, and further details are contained in the response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "callbacks",
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api,api-sandbox)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) A Bolt-signed hash-based message authentication code (HMAC) to verify that the sender is Bolt.",
+                    "key": "X-Bolt-Hmac-Sha256",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account_details\": {\n    \"addresses\": [\n      {\n        \"first_name\": \"Alice\",\n        \"last_name\": \"Baker\",\n        \"street_address1\": \"535 Mission St, Ste 1401\",\n        \"locality\": \"San Francisco\",\n        \"postal_code\": \"94105\",\n        \"country_code\": \"US\",\n        \"company\": \"ACME Corporation\",\n        \"street_address2\": \"c/o Shipping Department\",\n        \"region\": \"CA\",\n        \"email\": \"alice@example.com\",\n        \"phone\": \"+14155550199\"\n      },\n      {\n        \"first_name\": \"Alice\",\n        \"last_name\": \"Baker\",\n        \"street_address1\": \"535 Mission St, Ste 1401\",\n        \"locality\": \"San Francisco\",\n        \"postal_code\": \"94105\",\n        \"country_code\": \"US\",\n        \"company\": \"ACME Corporation\",\n        \"street_address2\": \"c/o Shipping Department\",\n        \"region\": \"CA\",\n        \"email\": \"alice@example.com\",\n        \"phone\": \"+14155550199\"\n      }\n    ],\n    \"payment_methods\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"profile\": {\n      \"first_name\": \"Alice\",\n      \"last_name\": \"Baker\",\n      \"email\": \"alice@example.com\",\n      \"phone\": \"+14155550199\"\n    }\n  },\n  \"customer_data_id\": \"5FEB9028D\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": " (This can only be one of api,api-sandbox)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "api-sandbox",
+      "key": "environment"
+    },
+    {
+      "type": "string",
+      "value": "https://{{environment}}.bolt.com/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6b3b1125-02c8-4753-9dd4-1b1256076815",
+    "name": "Bolt API Reference Account Callbacks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A comprehensive Bolt API reference for interacting with Accounts, Payments, Orders and more.\n\nContact Support:\n Name: Bolt\n Email: merchantsupport@bolt.com",
+      "type": "text/plain"
+    }
+  }
+}

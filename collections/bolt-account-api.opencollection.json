@@ -1,0 +1,240 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bolt API Reference Account API",
+    "version": "3.3.22"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve account details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{environment}.bolt.com/v3/account",
+            "headers": [
+              {
+                "name": "X-Publishable-Key",
+                "value": ""
+              },
+              {
+                "name": "X-Merchant-Client-Id",
+                "value": ""
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "/v1/oauth/authorize",
+              "accessTokenUrl": "/v1/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Retrieve a shopper's account details, such as addresses and payment information. The account's details are filtered to be relevant to your merchant account, and some fields may be missing for some accounts. See the schema for details."
+        },
+        {
+          "info": {
+            "name": "Add an address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{environment}.bolt.com/v3/account/addresses",
+            "headers": [
+              {
+                "name": "X-Publishable-Key",
+                "value": ""
+              },
+              {
+                "name": "X-Merchant-Client-Id",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "/v1/oauth/authorize",
+              "accessTokenUrl": "/v1/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Add an address to the shopper's account"
+        },
+        {
+          "info": {
+            "name": "Edit an existing address",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{environment}.bolt.com/v3/account/addresses/:id",
+            "headers": [
+              {
+                "name": "X-Publishable-Key",
+                "value": ""
+              },
+              {
+                "name": "X-Merchant-Client-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the address to edit"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "/v1/oauth/authorize",
+              "accessTokenUrl": "/v1/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Edit an existing address on the shopper's account. This does not edit addresses that are already associated with other resources, such as transactions or shipments."
+        },
+        {
+          "info": {
+            "name": "Delete an existing address",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{environment}.bolt.com/v3/account/addresses/:id",
+            "headers": [
+              {
+                "name": "X-Publishable-Key",
+                "value": ""
+              },
+              {
+                "name": "X-Merchant-Client-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the address to delete"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "/v1/oauth/authorize",
+              "accessTokenUrl": "/v1/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Delete an existing address. Deleting an address does not invalidate or remove the address from transactions or shipments that are associated with it."
+        },
+        {
+          "info": {
+            "name": "Add a payment method",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{environment}.bolt.com/v3/account/payment-methods",
+            "headers": [
+              {
+                "name": "X-Publishable-Key",
+                "value": ""
+              },
+              {
+                "name": "X-Merchant-Client-Id",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "/v1/oauth/authorize",
+              "accessTokenUrl": "/v1/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Add a payment method to a shopper's Bolt Account Wallet. For security purposes, this request must come from your backend. <br/> **Note**: Before using this API, the credit card details must be tokenized by Bolt's credit card tokenization service. Please review our [Bolt Payment Field Component](https://help.bolt.com/products/ignite/api-implementation/#enhance-payments) or [Install the Bolt Tokenizer](https://help.bolt.com/developers/references/bolt-tokenizer) documentation."
+        },
+        {
+          "info": {
+            "name": "Delete an existing payment method",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{environment}.bolt.com/v3/account/payment-methods/:id",
+            "headers": [
+              {
+                "name": "X-Publishable-Key",
+                "value": ""
+              },
+              {
+                "name": "X-Merchant-Client-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the payment method to delete"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "/v1/oauth/authorize",
+              "accessTokenUrl": "/v1/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Delete an existing payment method. Deleting a payment method does not invalidate or remove it from transactions or orders that are associated with it."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
