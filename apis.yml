@@ -30,6 +30,13 @@ specificationVersion: '0.23'
 tags:
   - Checkout
   - Payments
+  - E-Commerce
+  - One-Click Checkout
+  - Shopper Network
+  - Fraud Protection
+tags_raw:
+  - Checkout
+  - Payments
   - eCommerce
   - One-Click Checkout
   - Shopper Network
@@ -46,6 +53,11 @@ apis:
   humanURL: https://help.bolt.com/api-bolt/
   baseURL: https://api.bolt.com
   tags:
+  - Checkout
+  - Transaction
+  - Order
+  - Payments
+  tags_raw:
   - Checkout
   - Transactions
   - Orders
@@ -82,6 +94,12 @@ apis:
   baseURL: https://api.bolt.com
   tags:
   - Callbacks
+  - Webhook
+  - Cart
+  - Shipping
+  - Tax
+  tags_raw:
+  - Callbacks
   - Webhooks
   - Cart
   - Shipping
@@ -98,6 +116,9 @@ apis:
   humanURL: https://help.bolt.com/developers/apis/
   baseURL: https://api.bolt.com
   tags:
+  - Subscription
+  - Recurring Billing
+  tags_raw:
   - Subscriptions
   - Recurring Billing
   properties:
@@ -112,6 +133,10 @@ apis:
   humanURL: https://help.bolt.com/developers/apis/
   baseURL: https://api.bolt.com
   tags:
+  - Tokenization
+  - Payments
+  - Back Office
+  tags_raw:
   - Tokenization
   - Payments
   - Back-office
@@ -181,6 +206,8 @@ apis:
   humanURL: https://help.bolt.com/api-bolt/
   baseURL: https://api.bolt.com
   tags:
+  - Authentication
+  tags_raw:
   - OAuth
   properties:
   - type: OpenAPI
@@ -193,6 +220,8 @@ apis:
   humanURL: https://help.bolt.com/api-bolt/
   baseURL: https://api.bolt.com
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
